@@ -1,0 +1,41 @@
+/*
+ * Q60: Move zeroes to end of array
+ * Day-15 | Admission No: 25CSAIM290
+ */
+
+#include <stdio.h>
+
+int main() {
+    int n;
+
+    printf("Enter size of array: ");
+    scanf("%d", &n);
+
+    int arr[n];
+
+    printf("Enter %d elements:\n", n);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    /* Use a position pointer for non-zero elements */
+    int pos = 0;
+    for (int i = 0; i < n; i++) {
+        if (arr[i] != 0) {
+            arr[pos++] = arr[i];
+        }
+    }
+
+    /* Fill remaining positions with 0 */
+    while (pos < n) {
+        arr[pos++] = 0;
+    }
+
+    printf("Array after moving zeroes to end: ");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
